@@ -42,7 +42,6 @@ function changeimg(x)
 	}
 }
 
-
 function resetimg(x)
 {
 	var i = document.getElementById(x);
@@ -89,308 +88,75 @@ function printwin(x)
 	return;
 }
 
-function checkwin(x)
+function checkwin(x,num)
 {	
-	var k1 = document.getElementById("m1").src;
-	var k2 = document.getElementById("m2").src;
-	var k3 = document.getElementById("m3").src;
-	var k4 = document.getElementById("m4").src;
-	var k5 = document.getElementById("m5").src;
-	var k6 = document.getElementById("m6").src;
-	var k7 = document.getElementById("m7").src;
-	var k8 = document.getElementById("m8").src;
-	var k9 = document.getElementById("m9").src;
+	var h1 = document.getElementById("m1").src;
+	var h2 = document.getElementById("m2").src;
+	var h3 = document.getElementById("m3").src;
+	var h4 = document.getElementById("m4").src;
+	var h5 = document.getElementById("m5").src;
+	var h6 = document.getElementById("m6").src;
+	var h7 = document.getElementById("m7").src;
+	var h8 = document.getElementById("m8").src;
+	var h9 = document.getElementById("m9").src;
 	
 
 	
-	if(k1==k2 && k2==k3 && k1==x)
+	if(h1==h2 && h2==h3 && h1==x)
 	{
 		printwin(x);
 	}
 
-	else if(k4==k5 && k5==k6 && k4==x)
+	else if(h4==h5 && h5==h6 && h4==x)
 	{
 		printwin(x);
 	}
 
-	else if(k7==k8 && k8==k9 && k7==x)
+	else if(h7==h8 && h8==h9 && h7==x)
 	{
 		printwin(x);
 	}
 
-	else if(k1==k4 && k4==k7 && k1==x) 
+	else if(h1==h4 && h4==h7 && h1==x) 
 	{
 		printwin(x);
 	}
 
-	else if(k2==k5 && k5==k8 && k2==x)
+	else if(h2==h5 && h5==h8 && h2==x)
 	{
 		printwin(x);
 	}
-	else if(k3==k6 && k6==k9 && k3==x)
+	else if(h3==h6 && h6==h9 && h3==x)
 	{
 		printwin(x);
 	}
-	else if(k1==k5 && k5==k9 && k1==x) 
+	else if(h1==h5 && h5==h9 && h1==x) 
 	{
 		printwin(x);
 	}
-	else if(k3==k5 && k5==k7 && k3==x)
+	else if(h3==h5 && h5==h7 && h3==x)
 	{
 		printwin(x);
 	}	
 	
 }
 
-
-
-function randomclick()
+function changeplayer(x)
 {
-	
-	var a = Math.floor(Math.random() * 8) + 1;
-	var clickid;
-
-	switch(a)
+	if(x%2==0) 
 	{
-		case 1: clickid = "m1"; break;
-		case 2: clickid = "m2"; break;
-		case 3: clickid = "m3"; break;
-		case 4: clickid = "m4"; break;
-		case 5: clickid = "m5"; break; 
-		case 6: clickid = "m6"; break;
-		case 7: clickid = "m7"; break;
-		case 8: clickid = "m8"; break;
-		case 9: clickid = "m9"; break;
-	}
-
-
-	if (document.getElementById(clickid).src.indexOf("b.jpg")>-1)
-	{
-		
-		document.getElementById(clickid).click(); 
-		
+		document.getElementById("p1").style.opacity = 1;
+		document.getElementById("p2").style.opacity = 0.3;
 	}
 	else
 	{
-		randomclick();
+		document.getElementById("p2").style.opacity = 1;
+		document.getElementById("p1").style.opacity = 0.3;
 	}
-
 }
-
-
-function aiplay()
-{	
-	var y;
-	var clickid;
-
-	if( player <= 2)
-	{
-		randomclick();
-		return;
-	}	
-
-	tbrd = [3,0,0,0,0,0,0,0,0,0];
-
-	for(y=1;y<10;y++)
-	{
-			switch(y)
-		{
-			case 1: clickid = "m1"; break;
-			case 2: clickid = "m2"; break;
-			case 3: clickid = "m3"; break;
-			case 4: clickid = "m4"; break;
-			case 5: clickid = "m5"; break; 
-			case 6: clickid = "m6"; break;
-			case 7: clickid = "m7"; break;
-			case 8: clickid = "m8"; break;
-			case 9: clickid = "m9"; break;
-		}
-			if(document.getElementById(clickid).src.indexOf("o.jpg") > -1)
-			{
-				tbrd[y] = 1;
-			}
-			if(document.getElementById(clickid).src.indexOf("x.jpg") > -1)
-			{
-				tbrd[y] = 2;
-			}
-	}
-
-var flag = 0;
-
-for(y=1;(y<10)&&(tbrd[y]==0);y++)
-{
-
-	if( tbrd[1]==tbrd[2] && tbrd[2]==1 && y==3 )
-		{
-			flag = y;
-			
-		}
-	if( tbrd[1]==tbrd[3] && tbrd[3]==1 && y==2 ) //123
-		{
-			flag = y;
-			
-		}
-	if( tbrd[3]==tbrd[2] && tbrd[3]==1 && y==1 )
-		{
-			flag = y;
-			
-		}
-
-
-	if( tbrd[5]==tbrd[6] && tbrd[5]==1 && y==4 )
-		{
-			flag = y;
-			
-		}
-	if( tbrd[4]==tbrd[6] && tbrd[4]==1 && y==5 ) //456
-			{
-			flag = y;
-			
-		}
-	if( tbrd[4]==tbrd[5] && tbrd[4]==1 && y==6 )
-		{
-			flag = y;
-			
-		}
-
-
-	if( tbrd[8]==tbrd[9] && tbrd[8]==1 && y==7 )
-		{
-			flag = y;
-			
-		}
-	if( tbrd[7]==tbrd[9] && tbrd[7]==1 && y==8 )	//789
-		{
-			flag = y;
-			
-		}
-	if( tbrd[7]==tbrd[8] && tbrd[7]==1 && y==9 )
-		{
-			flag = y;
-			
-		}
-
-
-	if( tbrd[4]==tbrd[7] && tbrd[4]==1 && y==1 )
-		{
-			flag = y;
-			
-		}
-	if( tbrd[1]==tbrd[7] && tbrd[1]==1 && y==4 )  //147
-		{
-			flag = y;
-			
-		}
-	if( tbrd[1]==tbrd[4] && tbrd[1]==1 && y==7 )
-		{
-			flag = y;
-			
-		}
-
-
-	if( tbrd[5]==tbrd[8] && tbrd[5]==1 && y==2 )
-		{
-			flag = y;
-			
-		}
-	if( tbrd[2]==tbrd[8] && tbrd[2]==1 && y==5 ) //258
-		{
-			flag = y;
-			
-		}
-	if( tbrd[2]==tbrd[5] && tbrd[2]==1 && y==8 )
-		{
-			flag = y;
-			
-		}
-
-
-	if( tbrd[6]==tbrd[9] && tbrd[6]==1 && y==3 )
-		{
-			flag = y;
-			
-		}
-	if( tbrd[3]==tbrd[9] && tbrd[3]==1 && y==6 ) //369
-		{
-			flag = y;
-			
-		}
-	if( tbrd[3]==tbrd[6] && tbrd[3]==1 && y==9 )
-		{
-			flag = y;
-			
-		}
-	
-
-	if( tbrd[5]==tbrd[1] && tbrd[5]==1 && y==1 )
-		{
-			flag = y;
-			
-		}
-	if( tbrd[1]==tbrd[9] && tbrd[1]==1 && y==5 ) //159
-		{
-			flag = y;
-			
-		}
-	if( tbrd[1]==tbrd[5] && tbrd[1]==1 && y==9 )
-		{
-			flag = y;
-			
-		}
-	
-
-	if( tbrd[3]==tbrd[7] && tbrd[7]==1 && y==3 )
-		{
-			flag = y;
-			
-		}
-	if( tbrd[3]==tbrd[7] && tbrd[7]==1 && y==5 ) //357
-		{
-			flag = y;
-			
-		}
-	if( tbrd[3]==tbrd[5] && tbrd[5]==1 && y==7 )
-		{
-			flag = y;
-			
-		}
-		
-		if(flag!= 0 )
-			break;
-}
-
-if(y==10) 
-{
-	randomclick();
-		return;
-}
-
-switch(flag)
-		{
-			case 1: clickid = "m1"; break;
-			case 2: clickid = "m2"; break;
-			case 3: clickid = "m3"; break;
-			case 4: clickid = "m4"; break;
-			case 5: clickid = "m5"; break; 
-			case 6: clickid = "m6"; break;
-			case 7: clickid = "m7"; break;
-			case 8: clickid = "m8"; break;
-			case 9: clickid = "m9"; break;
-		}
-
-player = player +1;
-document.getElementById(clickid).click();
-alert("End of aiplay");
-
-}
-
 
 function theworks(x)
 {	
-	if(player%2!=0)
-	{
-		aiplay();
-	}
 	
 	switch(parseInt(x[1]))
 	{
@@ -405,7 +171,7 @@ function theworks(x)
 		case 9: if (h9 != 0) return; break;
 	}
 
-	
+	changeimg(x);
 	player = player + 1 ;
 	
 	var y;
@@ -439,3 +205,7 @@ function theworks(x)
 
 }
 
+function aiplay()
+{
+	
+}
