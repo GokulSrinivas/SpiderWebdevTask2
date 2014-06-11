@@ -104,39 +104,39 @@ function checkwin(x,num)
 	
 	if(h1==h2 && h2==h3 && h1==x)
 	{
-		printwin(x);
+		return true;
 	}
 
 	else if(h4==h5 && h5==h6 && h4==x)
 	{
-		printwin(x);
+		return true;
 	}
 
 	else if(h7==h8 && h8==h9 && h7==x)
 	{
-		printwin(x);
+		return true;
 	}
 
 	else if(h1==h4 && h4==h7 && h1==x) 
 	{
-		printwin(x);
+		return true;
 	}
 
 	else if(h2==h5 && h5==h8 && h2==x)
 	{
-		printwin(x);
+		return true;
 	}
 	else if(h3==h6 && h6==h9 && h3==x)
 	{
-		printwin(x);
+		return true;
 	}
 	else if(h1==h5 && h5==h9 && h1==x) 
 	{
-		printwin(x);
+		return true;
 	}
 	else if(h3==h5 && h5==h7 && h3==x)
 	{
-		printwin(x);
+		return true;
 	}	
 	
 }
@@ -201,11 +201,10 @@ function theworks(x)
 		case 9: if (h9 != 0) y = document.getElementById("m9").src; break;
 	}
 
-	checkwin(y);
+	if(checkwin(y))
+	{
+		printwin(y);
+	}
 
 }
 
-function aiplay()
-{
-	
-}
